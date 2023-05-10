@@ -25,7 +25,10 @@ app.listen(port, () => {
   console.log(`express is running on port ${port}`)
 })
 
-mongoose.connect(config.mongodbUri)
+mongoose.connect(config.mongodbUri, {
+  tlsAllowInvalidHostnames: true,
+  tlsAllowInvalidCertificates: true,
+})
 const db = mongoose.connection
 db.on('error', console.error)
 db.once('open', () => {
