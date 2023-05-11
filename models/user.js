@@ -1,5 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
+const crypto = require('crypto')
+const config = require('../config')
 
 const User = new Schema({
   username: String,
@@ -9,12 +11,16 @@ const User = new Schema({
 
 // 새 유저 생성
 User.statics.create = function(username, password) {
+  const encrypted = crypto.createHmac('sha1', config.secret)
+                    .update(password)
+                    .digest('base64')
+
   const user = new this({
     username,
-    password
+    password: encrypted
   })
 
-  // return the Promise
+//  return the Promise
   return user.save()
 }
 
@@ -28,7 +34,11 @@ User.statics.findOneByUsername = function(username) {
 
 // verify 메소드는 비밀번호가 정확한지 확인
 User.methods.verify = function(password) {
-  return this.password === password
+  const encrypted = crypto.createHmac('cha1', config.secret)
+                    .update(password)
+                    .digest('base64')
+
+  return this.password === encrypted
 }
 
 // 유저를 관리자 계정으로 설정
