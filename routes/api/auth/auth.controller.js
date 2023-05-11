@@ -118,3 +118,12 @@ exports.login = (req, res) => {
     .then(respond)
     .catch(onError)
 }
+
+// GET /api/auth/check
+
+exports.check = (req, res) => {
+  res.json({
+    success: true,
+    info: req.decoded
+  })
+}
