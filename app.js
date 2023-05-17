@@ -3,7 +3,6 @@ const bodyParser = require('body-parser')
 const morgan = require('morgan')
 const mongoose = require('mongoose')
 
-
 const config = require('./config')
 const port = process.env.PORT || 3000
 
@@ -15,15 +14,15 @@ app.use(bodyParser.json())
 app.use(morgan('dev'))
 
 // 화면 엔진 ejs로 설정
-app.set('views', __dirname + '/views')
+app.set('views', './views')
 app.set('views engine', 'ejs')
 
 app.set('jwt-secret', config.secret)
 
 // index.ejs실행
 app.get('/', (req, res) => {
-  res.render('index', {
-    title: 'Nodejs login 기능 구현',
+  res.render('index.ejs', {
+    tit: 'Nodejs login 기능 구현',
     content: 'hello world'
   })
 })
