@@ -1,3 +1,4 @@
+// jwt 라이브러리
 const jwt = require('jsonwebtoken')
 const User = require('../../../models/user')
 
@@ -61,6 +62,7 @@ exports.register = (req, res) => {
 // }
 
 exports.login = (req, res) => {
+  // body에 정보를 실어서 요청으로 가정
   const {username, password} = req.body
   const secret = req.app.get('jwt-secret')
 

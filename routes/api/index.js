@@ -7,4 +7,8 @@ router.use('/auth', auth)
 router.use('/user', authMiddleware)
 router.use('./user', user)
 
+router.get('/signUp', (req, res) => {
+  res.send('sign up')
+})
+
 module.exports = router

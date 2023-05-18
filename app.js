@@ -22,10 +22,15 @@ app.set('jwt-secret', config.secret)
 // index.ejs실행
 app.get('/', (req, res) => {
   res.render('index.ejs', {
-    tit: 'Nodejs login 기능 구현',
-    content: 'hello world'
+    tit: 'Nodejs login 기능 구현'
   })
 })
+
+// app.get('/signUp', (req, res) => {
+//   res.render('/signUp/index.ejs', {
+//     tit: 'Nodejs 회원가입 기능 구현'
+//   })
+// })
 
 app.use('/api', require('./routes/api'))
 
