@@ -26,11 +26,12 @@ app.get('/', (req, res) => {
   })
 })
 
-// app.get('/signUp', (req, res) => {
-//   res.render('/signUp/index.ejs', {
-//     tit: 'Nodejs 회원가입 기능 구현'
-//   })
-// })
+// 회원가입 페이지로 이동
+app.get('/signUp', (req, res) => {
+  res.render('./signUp/index.ejs', {
+    tit: 'Nodejs 회원가입 기능 구현'
+  })
+})
 
 app.use('/api', require('./routes/api'))
 
