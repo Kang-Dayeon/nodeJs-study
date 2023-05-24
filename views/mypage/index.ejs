@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Sign Up</title>
+    <title>My page</title>
     <style>
         body { font-size:12pt; color:#006666; }
         h1 { font-size:18pt; background-color:#AAFFFF; }
@@ -12,14 +12,10 @@
 
 <body>
 <header>
-    <h1 id="h1"><%=tit %></h1>
+    <h1 id="h1"><%= tit %></h1>
 </header>
 <div role="main">
-    <form method="post" action="/api/auth/register" id="sign-up-form">
-        <input type="text" placeholder="ID" name="username">
-        <input type="password" placeholder="PASSWORD" name="password">
-        <input type="submit" value="sign up">
-    </form>
+    <h1>안녕하세요 <%=userName %>님 :)</h1>
 </div>
 </body>
 
