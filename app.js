@@ -33,6 +33,13 @@ app.get('/signUp', (req, res) => {
   })
 })
 
+app.get('/mypage', (req,res) => {
+  res.render('./mypage/index.ejs', {
+    tit: 'My page',
+    userName: username
+  })
+})
+
 app.use('/api', require('./routes/api'))
 
 app.listen(port, () => {

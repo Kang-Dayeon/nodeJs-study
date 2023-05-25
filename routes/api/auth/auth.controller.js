@@ -32,11 +32,15 @@ exports.register = (req, res) => {
   }
 
   // respond to the client
-  const respond = (isAdmin) => {
-    res.json({
-      message: 'registered successfully',
-      admin: isAdmin ? true : false
-    })
+  // const respond = (isAdmin) => {
+  //   res.json({
+  //     message: 'registered successfully',
+  //     admin: isAdmin ? true : false
+  //   })
+  // }
+
+  const moveLogin = () => {
+    res.redirect('/')
   }
 
   // run when there is an error (username exists)
@@ -51,7 +55,7 @@ exports.register = (req, res) => {
     .then(create)
     .then(count)
     .then(assign)
-    .then(respond)
+    .then(moveLogin)
     .catch(onError)
 }
 
@@ -100,11 +104,15 @@ exports.login = (req, res) => {
   }
 
 //  respond the token
-  const respond = (token) => {
-    res.json({
-      message: 'logged in suvvessfully',
-      token
-    })
+//   const respond = (token) => {
+//     res.json({
+//       message: 'logged in suvvessfully',
+//       token
+//     })
+//   }
+
+  const moveMypage = () => {
+    res.redirect('/mypage')
   }
 
 //  error occured
@@ -117,7 +125,7 @@ exports.login = (req, res) => {
 //  find the user
   User.findOneByUsername(username)
     .then(check)
-    .then(respond)
+    .then(moveMypage)
     .catch(onError)
 }
 
