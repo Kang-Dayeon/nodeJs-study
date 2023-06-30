@@ -1,6 +1,10 @@
 require('dotenv').config()
-const { MONGO_URI } = process.env
+
+const dotenv = require('dotenv')
+
+dotenv.config()
+
 module.exports = {
   'secret': 'SeCrEtKeYfOrHaShInG',
-  'mongodbUri': MONGO_URI
+  'mongodbUri': process.env.MONGO_URI
 }
